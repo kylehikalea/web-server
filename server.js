@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var serverPort = 3000;
+var PORT = process.env.PORT || 3000;
 
 var middleware = require('./middleware.js');
 
@@ -12,6 +12,6 @@ app.get('/about', middleware.requireAuthentication, function (req, res) {
 
 app.use(express.static(__dirname + '/public'));
 
-app.listen(serverPort, function () {
-	console.log('Express server has booted successfully on ' + serverPort + '!');
+app.listen(PORT, function () {
+	console.log('Express server has booted successfully on ' + PORT + '!');
 });
